@@ -101,7 +101,6 @@ func main() {
 |--------|-------------|
 | `ToSlice()` | Return elements as a slice |
 | `Clone()` | Create a deep copy |
-| `Grow(newCap)` | Increase capacity (no-op if already larger) |
 | `Resize(newCap)` | Change capacity (discards back elements if shrinking) |
 
 ## License

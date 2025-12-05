@@ -362,33 +362,6 @@ func TestBackward(t *testing.T) {
 	}
 }
 
-func TestGrow(t *testing.T) {
-	b := New[int](3)
-	b.PushBack(1)
-	b.PushBack(2)
-	b.PushBack(3)
-
-	b.Grow(5)
-
-	if b.Cap() != 5 {
-		t.Errorf("Cap() = %d, want 5", b.Cap())
-	}
-	if b.Len() != 3 {
-		t.Errorf("Len() = %d, want 3", b.Len())
-	}
-
-	want := []int{1, 2, 3}
-	if got := b.ToSlice(); !slices.Equal(got, want) {
-		t.Errorf("ToSlice() = %v, want %v", got, want)
-	}
-
-	// Grow to smaller shouldn't change anything
-	b.Grow(2)
-	if b.Cap() != 5 {
-		t.Errorf("Cap() = %d, want 5 after Grow(2)", b.Cap())
-	}
-}
-
 func TestResize(t *testing.T) {
 	b := New[int](4)
 	b.PushBack(1)

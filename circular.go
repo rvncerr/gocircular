@@ -204,16 +204,6 @@ func (b *Buffer[T]) Backward() iter.Seq2[int, T] {
 	}
 }
 
-// Grow increases the buffer capacity to at least the specified size.
-// Elements are preserved in their current order.
-// If the new capacity is less than or equal to the current capacity, nothing happens.
-func (b *Buffer[T]) Grow(n int) {
-	if n <= len(b.buf) {
-		return
-	}
-	b.resize(n)
-}
-
 // Resize changes the buffer capacity.
 // If shrinking, elements at the back are discarded to fit the new capacity.
 // Panics if n is less than 1.
